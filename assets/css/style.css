@@ -19,24 +19,24 @@
 
 /* LIGHT MODE OVERRIDES */
 body.light-mode {
-  --bg: #f9f9f0;
-  --bg-elevated: #ffffff;
+  --bg: #fcfcf7; /* Lighter beige for body/app */
+  --bg-elevated: #fcfcf7; /* Main app background is now beige, not white */
   --bg-soft: #f0f0e8;
   --text: #111726;
   --muted: #5e6c84;
-  --border: rgba(0,0,0,0.08);
+  --border: rgba(0,0,0,0.1);
   --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
   --shadow-subtle: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 body.light-mode .app {
-  background: var(--bg-elevated);
+  background: var(--bg-elevated); /* Beige */
   box-shadow: 0 40px 80px rgba(0,0,0,0.1);
   border: 1px solid var(--border);
 }
 
 body.light-mode .sidebar {
-  background: #f1f1e6;
+  background: #f4f4ec; /* Slightly darker beige for sidebar distinction */
   border-right: 1px solid var(--border);
 }
 
@@ -50,15 +50,30 @@ body.light-mode .nav-item:hover:not(.active) {
   color: var(--text);
 }
 
+/* Specific button overrides for light mode */
+body.light-mode .btn-primary {
+    background: var(--primary); /* Use solid Dark Blue instead of Gold gradient */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(13, 59, 102, 0.3);
+}
+
+body.light-mode .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+body.light-mode .btn-ghost:hover {
+    background: rgba(0,0,0,0.05);
+}
+
 body.light-mode .card,
 body.light-mode .kpi,
 body.light-mode .agenda-item,
 body.light-mode .list-item,
 body.light-mode .quick-btn,
 body.light-mode .search input,
-body.light-mode .btn-ghost,
 body.light-mode .user-chip {
-  background: #ffffff;
+  background: #ffffff; /* Keep cards white to pop against beige */
   border: 1px solid var(--border);
   color: var(--text);
 }
