@@ -117,6 +117,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Modal Logic (New Process)
+    const btnOpenProcessModal = document.getElementById('btnOpenProcessModal');
+    const processModal = document.getElementById('newProcessModal');
+    const closeProcessBtn = document.getElementById('closeProcessModal');
+    const cancelProcessBtn = document.getElementById('cancelProcessModal');
+    const processForm = document.getElementById('newProcessForm');
+
+    if (btnOpenProcessModal && processModal) {
+        btnOpenProcessModal.addEventListener('click', () => {
+            processModal.classList.add('open');
+        });
+
+        const closeProcess = () => {
+            processModal.classList.remove('open');
+        };
+
+        if (closeProcessBtn) closeProcessBtn.addEventListener('click', closeProcess);
+        if (cancelProcessBtn) cancelProcessBtn.addEventListener('click', closeProcess);
+
+        processModal.addEventListener('click', (e) => {
+            if (e.target === processModal) closeProcess();
+        });
+
+        if (processForm) {
+            processForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = processForm.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = 'Criando...';
+
+                // Get values
+                const procNum = document.getElementById('procNum').value;
+                const procClient = document.getElementById('procClient').value;
+                const procArea = document.getElementById('procArea').value;
+                const procPhase = document.getElementById('procPhase').value;
+                const procResp = document.getElementById('procResp').value;
+                const procProb = document.getElementById('procProb').value;
+
+                setTimeout(() => {
+                    // Add to table
+                    const tableBody = document.querySelector('section[data-section="processos"] tbody');
+                    if (tableBody) {
+                        const newRow = `
+                            <tr>
+                              <td>${procNum}</td>
+                              <td>${procClient}</td>
+                              <td><span class="tag-pill">${procArea}</span></td>
+                              <td>${procPhase}</td>
+                              <td>${procProb}%</td>
+                              <td>${procResp}</td>
+                            </tr>
+                        `;
+                        tableBody.insertAdjacentHTML('afterbegin', newRow);
+                    }
+
+                    btn.textContent = originalText;
+                    closeProcess();
+                    processForm.reset();
+                    alert('Processo criado com sucesso!');
+                }, 800);
+            });
+        }
+    }
+
     // Simulate initial loading of dashboard
     const initialLoading = document.getElementById('loadingOverlay');
     if (initialLoading && !sessionStorage.getItem('dashboard_loaded')) {
@@ -126,5 +190,39 @@ document.addEventListener('DOMContentLoaded', () => {
             initialLoading.classList.remove('active');
             sessionStorage.setItem('dashboard_loaded', 'true');
         }, 800);
+    }
+
+    // --- 3. THEME TOGGLE LOGIC ---
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle ? themeToggle.querySelector('.icon') : null;
+
+    // Check saved preference
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
+        if (icon) icon.textContent = '☾';
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            if (icon) icon.textContent = isLight ? '☾' : '☀';
+        });
+    }
+
+    // --- 4. EXPANDABLE PROCESS VIEW ---
+    const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+    const appContainer = document.querySelector('.app');
+
+    if (toggleSidebarBtn) {
+        toggleSidebarBtn.addEventListener('click', () => {
+            appContainer.classList.toggle('sidebar-hidden');
+            const isHidden = appContainer.classList.contains('sidebar-hidden');
+            // Update icon
+            toggleSidebarBtn.textContent = isHidden ? '⤡' : '⤢';
+            toggleSidebarBtn.title = isHidden ? 'Restaurar visualização' : 'Expandir visualização';
+        });
     }
 });

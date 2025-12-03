@@ -37,24 +37,20 @@
         <nav class="nav-primary">
           <div class="nav-item active" data-target="dashboard">
             <span class="icon">◆</span>
-            <span class="nav-item-label">Visão geral</span>
+            <span class="nav-item-label">Dashboard</span>
             <span class="nav-badge">Hoje</span>
+          </div>
+          <div class="nav-item" data-target="clientes">
+            <span class="icon">👥</span>
+            <span class="nav-item-label">Clientes</span>
           </div>
           <div class="nav-item" data-target="processos">
             <span class="icon">§</span>
             <span class="nav-item-label">Processos</span>
           </div>
-          <div class="nav-item" data-target="audiencias">
-            <span class="icon">⚖</span>
-            <span class="nav-item-label">Audiências & Prazos</span>
-          </div>
-          <div class="nav-item" data-target="clientes">
-            <span class="icon">👥</span>
-            <span class="nav-item-label">Clientes & Partes</span>
-          </div>
-          <div class="nav-item" data-target="financeiro">
-            <span class="icon">₢</span>
-            <span class="nav-item-label">Financeiro & Honorários</span>
+          <div class="nav-item" data-target="usuarios">
+            <span class="icon">👤</span>
+            <span class="nav-item-label">Usuários</span>
           </div>
         </nav>
       </div>
@@ -132,6 +128,9 @@
               <div class="user-chip-avatar">L</div>
               <span>Admin</span>
             </div>
+            <button class="btn-ghost" id="themeToggle" title="Alternar tema">
+                <span class="icon">☀</span>
+            </button>
           </div>
         </div>
       </header>
@@ -431,7 +430,8 @@
                   </div>
                 </div>
                 <div class="card-actions">
-                  <button class="icon-btn" title="Novo processo">＋</button>
+                  <button class="icon-btn" id="btnOpenProcessModal" title="Novo processo">＋</button>
+                  <button class="icon-btn" id="toggleSidebarBtn" title="Expandir visualização">⤢</button>
                   <button class="icon-btn" title="Filtros avançados">⚲</button>
                 </div>
               </div>
@@ -684,123 +684,48 @@
           </div>
         </section>
 
-        <!-- SEÇÃO FINANCEIRO -->
-        <section class="page-section" data-section="financeiro">
-          <div class="section-simple-grid">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title-group">
-                  <div class="card-title">
-                    Financeiro & honorários
-                    <span class="card-pill">Performance econômica</span>
-                  </div>
-                  <div class="card-sub">
-                    Controle de contratos, faturas, inadimplência e êxito.
-                  </div>
+        <!-- SEÇÃO USUÁRIOS -->
+        <section class="page-section" data-section="usuarios">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="card-title">
+                  Usuários
+                  <span class="card-pill">Gestão de Acesso</span>
                 </div>
-                <div class="card-actions">
-                  <button class="icon-btn" title="Nova fatura">＋</button>
-                  <button class="icon-btn" title="Exportar">⇩</button>
+                <div class="card-sub">
+                  Gerencie os usuários e permissões do sistema.
                 </div>
               </div>
-              <div class="kpi-grid">
-                <div class="kpi">
-                  <div class="kpi-label">Honorários contratados</div>
-                  <div class="kpi-value">R$ 1,2M</div>
-                  <div class="kpi-extra">
-                    <span class="kpi-trend up">▲ 9% vs. ano anterior</span>
-                    <span class="kpi-tag">Contratos</span>
-                  </div>
-                </div>
-                <div class="kpi">
-                  <div class="kpi-label">Êxito previsto</div>
-                  <div class="kpi-value">R$ 3,4M</div>
-                  <div class="kpi-extra">
-                    <span class="kpi-trend up">▲ 4 casos</span>
-                    <span class="kpi-tag">Contencioso</span>
-                  </div>
-                </div>
-                <div class="kpi">
-                  <div class="kpi-label">Inadimplência</div>
-                  <div class="kpi-value">6,2%</div>
-                  <div class="kpi-extra">
-                    <span class="kpi-trend down">▼ -1,1 p.p.</span>
-                    <span class="kpi-tag">Recebíveis</span>
-                  </div>
-                </div>
-                <div class="kpi">
-                  <div class="kpi-label">Faturas em aberto</div>
-                  <div class="kpi-value">23</div>
-                  <div class="kpi-extra">
-                    <span class="kpi-trend down">● R$ 180k</span>
-                    <span class="kpi-tag">30+ dias</span>
-                  </div>
-                </div>
+              <div class="card-actions">
+                <button class="icon-btn" title="Novo usuário">＋</button>
               </div>
-              <div class="table-wrapper" style="max-height: 220px; margin-top:10px;">
+            </div>
+            <div class="table-wrapper">
                 <table>
                   <thead>
                     <tr>
-                      <th>Fatura</th>
-                      <th>Cliente</th>
-                      <th>Data</th>
-                      <th>Valor</th>
+                      <th>Nome</th>
+                      <th>Email</th>
+                      <th>Perfil</th>
                       <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>F2025-113</td>
-                      <td>Banco Horizonte</td>
-                      <td>01/12/2025</td>
-                      <td>R$ 85.000,00</td>
-                      <td><span class="status-pill status-open">Pago parcial</span></td>
+                      <td>Dra. Adriana Dias</td>
+                      <td>adriana.dias@legalerp.com</td>
+                      <td>Administrador</td>
+                      <td><span class="status-pill status-open">Ativo</span></td>
                     </tr>
                     <tr>
-                      <td>F2025-114</td>
-                      <td>Grupo Atlântico S.A.</td>
-                      <td>28/11/2025</td>
-                      <td>R$ 120.000,00</td>
-                      <td><span class="status-pill status-risk">Atraso 15 dias</span></td>
-                    </tr>
-                    <tr>
-                      <td>F2025-115</td>
-                      <td>InovaTech Ltda.</td>
-                      <td>25/11/2025</td>
-                      <td>R$ 32.000,00</td>
-                      <td><span class="status-pill status-open">Em aberto</span></td>
+                      <td>Dr. Silva</td>
+                      <td>silva@legalerp.com</td>
+                      <td>Advogado Sênior</td>
+                      <td><span class="status-pill status-open">Ativo</span></td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title-group">
-                  <div class="card-title">
-                    Projeção de caixa
-                    <span class="card-pill">Próximos 90 dias</span>
-                  </div>
-                  <div class="card-sub">
-                    Estimativa de entradas com base em contratos e êxito provável.
-                  </div>
-                </div>
-              </div>
-              <div class="list-simple">
-                <div class="list-item">
-                  <strong>Dezembro / 2025</strong>
-                  <span class="meta">Entradas previstas: R$ 410.000,00 • 70% contratos, 30% êxito</span>
-                </div>
-                <div class="list-item">
-                  <strong>Janeiro / 2026</strong>
-                  <span class="meta">Entradas previstas: R$ 360.000,00 • 65% contratos, 35% êxito</span>
-                </div>
-                <div class="list-item">
-                  <strong>Fevereiro / 2026</strong>
-                  <span class="meta">Entradas previstas: R$ 330.000,00 • 60% contratos, 40% êxito</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -825,7 +750,6 @@
         <div class="form-group">
             <label class="form-label">Tipo de registro</label>
             <select class="form-select">
-                <option>Novo Processo</option>
                 <option>Nova Audiência</option>
                 <option>Novo Cliente</option>
                 <option>Lançamento Financeiro</option>
@@ -842,6 +766,52 @@
         <div class="modal-footer">
             <button type="button" class="btn-ghost modal-close-btn">Cancelar</button>
             <button type="submit" class="btn-primary">Salvar registro</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Novo Processo -->
+  <div class="modal-overlay" id="newProcessModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2 class="modal-title">Novo Processo</h2>
+        <button class="modal-close" id="closeProcessModal">&times;</button>
+      </div>
+      <form id="newProcessForm">
+        <div class="form-group">
+            <label class="form-label">Número do Processo</label>
+            <input type="text" id="procNum" class="form-input" placeholder="0000000-00.0000.0.00.0000" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Cliente</label>
+            <input type="text" id="procClient" class="form-input" placeholder="Nome do cliente" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Área</label>
+            <select id="procArea" class="form-select">
+                <option value="Cível">Cível</option>
+                <option value="Trabalhista">Trabalhista</option>
+                <option value="Tributário">Tributário</option>
+                <option value="Família">Família</option>
+                <option value="Societário">Societário</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Fase Processual</label>
+            <input type="text" id="procPhase" class="form-input" placeholder="Ex: Instrução">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Responsável</label>
+            <input type="text" id="procResp" class="form-input" placeholder="Nome do advogado">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Probabilidade de Êxito (%)</label>
+            <input type="number" id="procProb" class="form-input" placeholder="0-100" min="0" max="100">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-ghost" id="cancelProcessModal">Cancelar</button>
+            <button type="submit" class="btn-primary">Criar Processo</button>
         </div>
       </form>
     </div>
