@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Legal ERP - Painel Jurídico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64">
+            <g>
+              <rect x="29" y="18" width="6" height="26" rx="2"></rect>
+              <rect x="22" y="16" width="20" height="4" rx="2"></rect>
+              <circle cx="32" cy="16" r="3"></circle>
+              <line x1="20" y1="24" x2="32" y2="20" stroke="currentColor" stroke-width="2"></line>
+              <line x1="44" y1="24" x2="32" y2="20" stroke="currentColor" stroke-width="2"></line>
+              <path d="M16 24 L22 38 L10 38 Z"></path>
+              <path d="M48 24 L54 38 L42 38 Z"></path>
+              <rect x="22" y="46" width="20" height="4" rx="2"></rect>
+              <rect x="18" y="50" width="28" height="4" rx="2"></rect>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-text-legal">Legal ERP</span>
+          <span class="logo-text-erp">Gestão jurídica inteligente</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Painel</div>
+        <nav class="nav-primary">
+          <div class="nav-item active" data-target="dashboard">
+            <span class="icon">◆</span>
+            <span class="nav-item-label">Visão geral</span>
+            <span class="nav-badge">Hoje</span>
+          </div>
+          <div class="nav-item" data-target="processos">
+            <span class="icon">§</span>
+            <span class="nav-item-label">Processos</span>
+          </div>
+          <div class="nav-item" data-target="audiencias">
+            <span class="icon">⚖</span>
+            <span class="nav-item-label">Audiências & Prazos</span>
+          </div>
+          <div class="nav-item" data-target="clientes">
+            <span class="icon">👥</span>
+            <span class="nav-item-label">Clientes & Partes</span>
+          </div>
+          <div class="nav-item" data-target="financeiro">
+            <span class="icon">₢</span>
+            <span class="nav-item-label">Financeiro & Honorários</span>
+          </div>
+        </nav>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Configuração</div>
+        <nav class="nav-secondary">
+          <div class="nav-item">
+            <span class="icon">☆</span>
+            <span class="nav-item-label">Modelos & Minutas</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">☰</span>
+            <span class="nav-item-label">Relatórios</span>
+          </div>
+          <div class="nav-item">
+            <span class="icon">⚙</span>
+            <span class="nav-item-label">Preferências do escritório</span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="pro-card">
+          <div class="pro-card-title">Módulo Premium de Inteligência</div>
+          <p>
+            Gere insights de risco, probabilidade de êxito e previsões de honorários com base no histórico do escritório.
+          </p>
+          <div class="pro-pill">
+            <span class="dot"></span>
+            Legal Insights • Beta
+          </div>
+        </div>
+
+        <div class="user-mini">
+          <div class="user-mini-info">
+            <div class="user-avatar">AD</div>
+            <div class="user-names">
+              <strong>Dra. Adriana Dias</strong>
+              <span>OAB/RJ 123.456</span>
+            </div>
+          </div>
+          <div class="user-status-pill">Online</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="topbar-title">
+            Painel do escritório
+            <span class="topbar-badge">Legal ERP</span>
+          </div>
+          <div class="topbar-subtitle" id="page-subtitle">
+            Visão consolidada de processos, prazos e faturamento em tempo real.
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="search">
+            <span class="search-icon">🔍</span>
+            <input placeholder="Buscar por número do processo, cliente ou parte..." />
+            <span class="kbd-hint">Ctrl+K</span>
+          </div>
+          <div class="topbar-actions">
+            <button class="btn-ghost" id="newRecordBtn">
+              <span class="icon">＋</span>
+              Novo registro
+            </button>
+            <button class="btn-primary">
+              <span>Registrar audiência</span>
+            </button>
+            <div class="user-chip">
+              <div class="user-chip-avatar">L</div>
+              <span>Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <!-- SEÇÃO DASHBOARD -->
+        <section class="page-section active" data-section="dashboard">
+          <div class="section-grid">
+            <div class="col-left">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title-group">
+                    <div class="card-title">
+                      Indicadores do dia
+                    </div>
+                    <div class="card-sub">
+                      Atualizado às 08:15 • Horário de Brasília
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <button class="icon-btn" title="Atualizar">⟳</button>
+                    <button class="icon-btn" title="Filtrar período">≡</button>
+                  </div>
+                </div>
+                <div class="kpi-grid">
+                  <div class="kpi">
+                    <div class="kpi-label">Processos ativos</div>
+                    <div class="kpi-value">184</div>
+                    <div class="kpi-extra">
+                      <span class="kpi-trend up">▲ +12 este mês</span>
+                      <span class="kpi-tag">Carteira</span>
+                    </div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-label">Prazos hoje</div>
+                    <div class="kpi-value">9</div>
+                    <div class="kpi-extra">
+                      <span class="kpi-trend down">● 2 em risco</span>
+                      <span class="kpi-tag">Prioridade</span>
+                    </div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-label">Faturamento do mês</div>
+                    <div class="kpi-value">R$ 238k</div>
+                    <div class="kpi-extra">
+                      <span class="kpi-trend up">▲ +18%</span>
+                      <span class="kpi-tag">Honorários</span>
+                    </div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-label">Novos clientes</div>
+                    <div class="kpi-value">7</div>
+                    <div class="kpi-extra">
+                      <span class="kpi-trend up">▲ +3 vs. mês anterior</span>
+                      <span class="kpi-tag">Origem</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title-group">
+                    <div class="card-title">
+                      Processos em destaque
+                      <span class="card-pill">Últimos movimentos</span>
+                    </div>
+                    <div class="card-sub">
+                      Ordenado por criticidade de prazo e valor estimado de causa.
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <button class="icon-btn" title="Visualização em lista">☰</button>
+                    <button class="icon-btn" title="Exportar">⇩</button>
+                  </div>
+                </div>
+                <div class="table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Processo</th>
+                        <th>Cliente</th>
+                        <th>Área</th>
+                        <th>Próximo prazo</th>
+                        <th>Status</th>
+                        <th>Responsável</th>
+                        <th>Valor da causa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>#0001234-56.2023.8.19.0001</td>
+                        <td>Grupo Atlântico S.A.</td>
+                        <td><span class="tag-pill">Cível estratégico</span></td>
+                        <td>Hoje • 18:00</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-risk">Risco de prazo</span>
+                        </td>
+                        <td>Dr. Silva</td>
+                        <td>R$ 8.200.000,00</td>
+                      </tr>
+                      <tr>
+                        <td>#0009876-12.2024.5.01.0003</td>
+                        <td>Maria Oliveira</td>
+                        <td><span class="tag-pill">Trabalhista</span></td>
+                        <td>Amanhã • 14:30</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-open">Em andamento</span>
+                        </td>
+                        <td>Dra. Dias</td>
+                        <td>R$ 250.000,00</td>
+                      </tr>
+                      <tr>
+                        <td>#0012345-00.2022.8.19.0202</td>
+                        <td>Banco Horizonte</td>
+                        <td><span class="tag-pill">Recuperação de crédito</span></td>
+                        <td>+2 dias</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-open">Audiência marcada</span>
+                        </td>
+                        <td>Dr. Nogueira</td>
+                        <td>R$ 1.350.000,00</td>
+                      </tr>
+                      <tr>
+                        <td>#0102030-45.2020.8.19.0101</td>
+                        <td>InovaTech Ltda.</td>
+                        <td><span class="tag-pill">Societário</span></td>
+                        <td>+7 dias</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-standby">Aguardando manifestação</span>
+                        </td>
+                        <td>Dra. Lima</td>
+                        <td>R$ 3.900.000,00</td>
+                      </tr>
+                      <tr>
+                        <td>#0045678-90.2023.8.19.0005</td>
+                        <td>Condomínio Mar Azul</td>
+                        <td><span class="tag-pill">Condominial</span></td>
+                        <td>Hoje • 16:00</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-open">Em andamento</span>
+                        </td>
+                        <td>Dr. Silva</td>
+                        <td>R$ 120.000,00</td>
+                      </tr>
+                      <tr>
+                        <td>#0023456-78.2021.8.19.0007</td>
+                        <td>João Pereira</td>
+                        <td><span class="tag-pill">Família</span></td>
+                        <td>+1 dia</td>
+                        <td class="status-cell">
+                          <span class="status-pill status-standby">Acordo em negociação</span>
+                        </td>
+                        <td>Dra. Dias</td>
+                        <td>R$ 80.000,00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-right">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title-group">
+                    <div class="card-title">
+                      Agenda de hoje
+                      <span class="card-pill">Audiências & prazos críticos</span>
+                    </div>
+                    <div class="card-sub">
+                      Foco nos eventos com impacto direto em prescrições e risco financeiro.
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <button class="icon-btn" title="Dia anterior">◀</button>
+                    <button class="icon-btn" title="Dia seguinte">▶</button>
+                  </div>
+                </div>
+                <div class="agenda-list">
+                  <div class="agenda-item">
+                    <div class="agenda-date">
+                      <span class="day">03</span><br>
+                      <span class="month">dez</span>
+                    </div>
+                    <div class="agenda-main">
+                      <strong>Audiência de instrução – 2ª Vara Cível</strong>
+                      <span>#0001234-56.2023.8.19.0001 • Grupo Atlântico S.A.</span>
+                    </div>
+                    <div class="agenda-type audiencia">Audiência</div>
+                  </div>
+                  <div class="agenda-item">
+                    <div class="agenda-date">
+                      <span class="day">03</span><br>
+                      <span class="month">dez</span>
+                    </div>
+                    <div class="agenda-main">
+                      <strong>Protocolo de contestação</strong>
+                      <span>#0045678-90.2023.8.19.0005 • Condomínio Mar Azul</span>
+                    </div>
+                    <div class="agenda-type prazo">Prazo fatal</div>
+                  </div>
+                  <div class="agenda-item">
+                    <div class="agenda-date">
+                      <span class="day">03</span><br>
+                      <span class="month">dez</span>
+                    </div>
+                    <div class="agenda-main">
+                      <strong>Reunião com cliente</strong>
+                      <span>InovaTech Ltda. • Revisão de acordo societário</span>
+                    </div>
+                    <div class="agenda-type reuniao">Reunião</div>
+                  </div>
+                  <div class="agenda-item">
+                    <div class="agenda-date">
+                      <span class="day">04</span><br>
+                      <span class="month">dez</span>
+                    </div>
+                    <div class="agenda-main">
+                      <strong>Prazo para recurso</strong>
+                      <span>#0009876-12.2024.5.01.0003 • Maria Oliveira</span>
+                    </div>
+                    <div class="agenda-type prazo">Prazo</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title-group">
+                    <div class="card-title">
+                      Últimos movimentos
+                      <span class="card-pill">Timeline da área contenciosa</span>
+                    </div>
+                    <div class="card-sub">
+                      Registro automático de andamentos importados e interações internas.
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <button class="icon-btn" title="Filtrar por área">⚲</button>
+                  </div>
+                </div>
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Despacho publicado determinando manifestação em 5 dias</strong>
+                    <span>Processo #0001234-56.2023.8.19.0001 • às 09:12</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Contestação anexada e protocolada com sucesso</strong>
+                    <span>Processo #0045678-90.2023.8.19.0005 • às 08:47</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Proposta de acordo registrada pelo cliente via portal</strong>
+                    <span>Processo #0023456-78.2021.8.19.0007 • às 08:03</span>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Pagamento parcial de honorários identificado</strong>
+                    <span>Financeiro • Fatura F2025-113 • às 07:50</span>
+                  </div>
+                </div>
+
+                <div class="quick-actions">
+                  <button class="quick-btn">
+                    <span class="label">Novo processo</span>
+                    <span class="desc">Cadastrar ação judicial ou procedimento administrativo.</span>
+                  </button>
+                  <button class="quick-btn">
+                    <span class="label">Novo cliente</span>
+                    <span class="desc">Iniciar ficha de pessoa física ou jurídica.</span>
+                  </button>
+                  <button class="quick-btn">
+                    <span class="label">Emitir fatura</span>
+                    <span class="desc">Gerar honorários contratados ou êxito.</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO PROCESSOS -->
+        <section class="page-section" data-section="processos">
+          <div class="section-simple-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Processos
+                    <span class="card-pill">Gestão completa</span>
+                  </div>
+                  <div class="card-sub">
+                    Filtre por área, fase processual, probabilidade de êxito e responsável.
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <button class="icon-btn" title="Novo processo">＋</button>
+                  <button class="icon-btn" title="Filtros avançados">⚲</button>
+                </div>
+              </div>
+              <div class="pill-filter">
+                <span class="active">Todos</span>
+                <span>Cível</span>
+                <span>Trabalhista</span>
+                <span>Tributário</span>
+                <span>Penal</span>
+              </div>
+              <div class="table-wrapper" style="max-height: 320px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Processo</th>
+                      <th>Cliente</th>
+                      <th>Área</th>
+                      <th>Fase</th>
+                      <th>Prob. êxito</th>
+                      <th>Responsável</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#0203040-11.2024.8.19.0001</td>
+                      <td>Grupo Atlântico S.A.</td>
+                      <td><span class="tag-pill">Cível estratégico</span></td>
+                      <td>Instrução</td>
+                      <td>78%</td>
+                      <td>Dr. Silva</td>
+                    </tr>
+                    <tr>
+                      <td>#0302010-22.2023.5.01.0004</td>
+                      <td>Maria Oliveira</td>
+                      <td><span class="tag-pill">Trabalhista</span></td>
+                      <td>Recurso</td>
+                      <td>62%</td>
+                      <td>Dra. Dias</td>
+                    </tr>
+                    <tr>
+                      <td>#0403020-33.2022.8.19.0203</td>
+                      <td>Banco Horizonte</td>
+                      <td><span class="tag-pill">Recuperação de crédito</span></td>
+                      <td>Execução</td>
+                      <td>91%</td>
+                      <td>Dr. Nogueira</td>
+                    </tr>
+                    <tr>
+                      <td>#0504030-44.2021.8.19.0102</td>
+                      <td>InovaTech Ltda.</td>
+                      <td><span class="tag-pill">Societário</span></td>
+                      <td>Conhecimento</td>
+                      <td>54%</td>
+                      <td>Dra. Lima</td>
+                    </tr>
+                    <tr>
+                      <td>#0605040-55.2020.8.19.0009</td>
+                      <td>Condomínio Mar Azul</td>
+                      <td><span class="tag-pill">Condominial</span></td>
+                      <td>Execução</td>
+                      <td>83%</td>
+                      <td>Dr. Souza</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Painel de risco
+                    <span class="card-pill">Insights preditivos</span>
+                  </div>
+                  <div class="card-sub">
+                    Visão rápida dos casos com maior impacto financeiro e menor probabilidade de êxito.
+                  </div>
+                </div>
+              </div>
+              <div class="list-simple">
+                <div class="list-item">
+                  <strong>Grupo Atlântico S.A. • Ação indenizatória</strong>
+                  <span class="meta">Prob. êxito 42% • Valor R$ 12.500.000,00 • 1º grau</span>
+                </div>
+                <div class="list-item">
+                  <strong>Banco Horizonte • Execução de título</strong>
+                  <span class="meta">Prob. êxito 55% • Valor R$ 3.200.000,00 • Fase de penhora</span>
+                </div>
+                <div class="list-item">
+                  <strong>InovaTech Ltda. • Dissolução parcial</strong>
+                  <span class="meta">Prob. êxito 61% • Valor R$ 1.800.000,00 • Audiência de instrução marcada</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO AUDIÊNCIAS -->
+        <section class="page-section" data-section="audiencias">
+          <div class="section-simple-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Audiências & prazos
+                    <span class="card-pill">Agenda avançada</span>
+                  </div>
+                  <div class="card-sub">
+                    Controle de compromissos por foro, sala, tipo de ato e advogado responsável.
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <button class="icon-btn" title="Nova audiência">＋</button>
+                  <button class="icon-btn" title="Visualizar calendário">📅</button>
+                </div>
+              </div>
+              <div class="agenda-list">
+                <div class="agenda-item">
+                  <div class="agenda-date">
+                    <span class="day">03</span><br>
+                    <span class="month">dez</span>
+                  </div>
+                  <div class="agenda-main">
+                    <strong>Instrução • 2ª Vara Cível / RJ</strong>
+                    <span>Processo #0203040-11.2024.8.19.0001 • Sala 03 • Juiz: Dr. Carvalho</span>
+                  </div>
+                  <div class="agenda-type audiencia">Audiência</div>
+                </div>
+                <div class="agenda-item">
+                  <div class="agenda-date">
+                    <span class="day">04</span><br>
+                    <span class="month">dez</span>
+                  </div>
+                  <div class="agenda-main">
+                    <strong>Prazo para razões finais</strong>
+                    <span>Processo #0302010-22.2023.5.01.0004 • Contagem regressiva: 1 dia</span>
+                  </div>
+                  <div class="agenda-type prazo">Prazo fatal</div>
+                </div>
+                <div class="agenda-item">
+                  <div class="agenda-date">
+                    <span class="day">05</span><br>
+                    <span class="month">dez</span>
+                  </div>
+                  <div class="agenda-main">
+                    <strong>Audiência de conciliação • CEJUSC</strong>
+                    <span>Processo #0605040-55.2020.8.19.0009 • Condomínio Mar Azul</span>
+                  </div>
+                  <div class="agenda-type audiencia">Conciliação</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Alertas de SLA
+                    <span class="card-pill">Compromissos críticos</span>
+                  </div>
+                  <div class="card-sub">
+                    Prazos contratualmente garantidos com monitoramento de risco.
+                  </div>
+                </div>
+              </div>
+              <div class="list-simple">
+                <div class="list-item">
+                  <strong>Contestação trabalhista – SLA 48h</strong>
+                  <span class="meta">Restam 12h • Cliente: Maria Oliveira • Responsável: Dra. Dias</span>
+                </div>
+                <div class="list-item">
+                  <strong>Manifestação em despacho – SLA 24h</strong>
+                  <span class="meta">Restam 6h • Cliente: Grupo Atlântico S.A. • Responsável: Dr. Silva</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO CLIENTES -->
+        <section class="page-section" data-section="clientes">
+          <div class="section-simple-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Clientes & partes
+                    <span class="card-pill">CRM jurídico</span>
+                  </div>
+                  <div class="card-sub">
+                    Visão única de pessoas físicas, jurídicas e partes adversas.
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <button class="icon-btn" title="Novo cliente">＋</button>
+                </div>
+              </div>
+              <div class="pill-filter">
+                <span class="active">Todos</span>
+                <span>Pessoas físicas</span>
+                <span>Pessoas jurídicas</span>
+                <span>Partes adversas</span>
+              </div>
+              <div class="list-simple">
+                <div class="list-item">
+                  <strong>Grupo Atlântico S.A.</strong>
+                  <span class="meta">Pessoa jurídica • 14 processos ativos • Segmento: Energia</span>
+                </div>
+                <div class="list-item">
+                  <strong>Maria Oliveira</strong>
+                  <span class="meta">Pessoa física • 2 processos • Área principal: Trabalhista</span>
+                </div>
+                <div class="list-item">
+                  <strong>Banco Horizonte</strong>
+                  <span class="meta">Pessoa jurídica • 9 processos ativos • Segmento: Financeiro</span>
+                </div>
+                <div class="list-item">
+                  <strong>InovaTech Ltda.</strong>
+                  <span class="meta">Pessoa jurídica • 3 processos • Segmento: Tecnologia</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Relacionamento
+                    <span class="card-pill">Últimas interações</span>
+                  </div>
+                  <div class="card-sub">
+                    Registro de contatos relevantes para estratégia e compliance.
+                  </div>
+                </div>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <strong>Reunião estratégica com diretoria do Grupo Atlântico S.A.</strong>
+                  <span>Definição de política de acordos para 2026 • Ontem, 16:30</span>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <strong>Follow-up com Maria Oliveira sobre proposta de acordo</strong>
+                  <span>Contato telefônico registrado • Hoje, 10:15</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO FINANCEIRO -->
+        <section class="page-section" data-section="financeiro">
+          <div class="section-simple-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Financeiro & honorários
+                    <span class="card-pill">Performance econômica</span>
+                  </div>
+                  <div class="card-sub">
+                    Controle de contratos, faturas, inadimplência e êxito.
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <button class="icon-btn" title="Nova fatura">＋</button>
+                  <button class="icon-btn" title="Exportar">⇩</button>
+                </div>
+              </div>
+              <div class="kpi-grid">
+                <div class="kpi">
+                  <div class="kpi-label">Honorários contratados</div>
+                  <div class="kpi-value">R$ 1,2M</div>
+                  <div class="kpi-extra">
+                    <span class="kpi-trend up">▲ 9% vs. ano anterior</span>
+                    <span class="kpi-tag">Contratos</span>
+                  </div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Êxito previsto</div>
+                  <div class="kpi-value">R$ 3,4M</div>
+                  <div class="kpi-extra">
+                    <span class="kpi-trend up">▲ 4 casos</span>
+                    <span class="kpi-tag">Contencioso</span>
+                  </div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Inadimplência</div>
+                  <div class="kpi-value">6,2%</div>
+                  <div class="kpi-extra">
+                    <span class="kpi-trend down">▼ -1,1 p.p.</span>
+                    <span class="kpi-tag">Recebíveis</span>
+                  </div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Faturas em aberto</div>
+                  <div class="kpi-value">23</div>
+                  <div class="kpi-extra">
+                    <span class="kpi-trend down">● R$ 180k</span>
+                    <span class="kpi-tag">30+ dias</span>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrapper" style="max-height: 220px; margin-top:10px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Fatura</th>
+                      <th>Cliente</th>
+                      <th>Data</th>
+                      <th>Valor</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>F2025-113</td>
+                      <td>Banco Horizonte</td>
+                      <td>01/12/2025</td>
+                      <td>R$ 85.000,00</td>
+                      <td><span class="status-pill status-open">Pago parcial</span></td>
+                    </tr>
+                    <tr>
+                      <td>F2025-114</td>
+                      <td>Grupo Atlântico S.A.</td>
+                      <td>28/11/2025</td>
+                      <td>R$ 120.000,00</td>
+                      <td><span class="status-pill status-risk">Atraso 15 dias</span></td>
+                    </tr>
+                    <tr>
+                      <td>F2025-115</td>
+                      <td>InovaTech Ltda.</td>
+                      <td>25/11/2025</td>
+                      <td>R$ 32.000,00</td>
+                      <td><span class="status-pill status-open">Em aberto</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-title">
+                    Projeção de caixa
+                    <span class="card-pill">Próximos 90 dias</span>
+                  </div>
+                  <div class="card-sub">
+                    Estimativa de entradas com base em contratos e êxito provável.
+                  </div>
+                </div>
+              </div>
+              <div class="list-simple">
+                <div class="list-item">
+                  <strong>Dezembro / 2025</strong>
+                  <span class="meta">Entradas previstas: R$ 410.000,00 • 70% contratos, 30% êxito</span>
+                </div>
+                <div class="list-item">
+                  <strong>Janeiro / 2026</strong>
+                  <span class="meta">Entradas previstas: R$ 360.000,00 • 65% contratos, 35% êxito</span>
+                </div>
+                <div class="list-item">
+                  <strong>Fevereiro / 2026</strong>
+                  <span class="meta">Entradas previstas: R$ 330.000,00 • 60% contratos, 40% êxito</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Carregando dados...</div>
+  </div>
+
+  <!-- Modal Novo Registro -->
+  <div class="modal-overlay" id="newRecordModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2 class="modal-title">Novo Registro</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="newRecordForm">
+        <div class="form-group">
+            <label class="form-label">Tipo de registro</label>
+            <select class="form-select">
+                <option>Novo Processo</option>
+                <option>Nova Audiência</option>
+                <option>Novo Cliente</option>
+                <option>Lançamento Financeiro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Título / Descrição</label>
+            <input type="text" class="form-input" placeholder="Ex: Ação indenizatória vs. XPTO">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Cliente vinculado</label>
+            <input type="text" class="form-input" placeholder="Buscar cliente...">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-ghost modal-close-btn">Cancelar</button>
+            <button type="submit" class="btn-primary">Salvar registro</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
