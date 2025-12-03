@@ -17,6 +17,102 @@
   --shadow-subtle: 0 8px 20px rgba(0,0,0,0.35);
 }
 
+/* LIGHT MODE OVERRIDES */
+body.light-mode {
+  --bg: #f9f9f0;
+  --bg-elevated: #ffffff;
+  --bg-soft: #f0f0e8;
+  --text: #111726;
+  --muted: #5e6c84;
+  --border: rgba(0,0,0,0.08);
+  --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
+  --shadow-subtle: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+body.light-mode .app {
+  background: var(--bg-elevated);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+}
+
+body.light-mode .sidebar {
+  background: #f1f1e6;
+  border-right: 1px solid var(--border);
+}
+
+body.light-mode .nav-item span.icon {
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+body.light-mode .nav-item:hover:not(.active) {
+  background: rgba(0,0,0,0.04);
+  color: var(--text);
+}
+
+body.light-mode .card,
+body.light-mode .kpi,
+body.light-mode .agenda-item,
+body.light-mode .list-item,
+body.light-mode .quick-btn,
+body.light-mode .search input,
+body.light-mode .btn-ghost,
+body.light-mode .user-chip {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+body.light-mode .card {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+body.light-mode .search input:focus {
+  background: #ffffff;
+}
+
+body.light-mode table th {
+  border-bottom: 1px solid var(--border);
+}
+
+body.light-mode thead {
+  background: rgba(255,255,255,0.98);
+}
+
+body.light-mode tbody tr:nth-child(even) {
+  background: rgba(0,0,0,0.02);
+}
+
+body.light-mode tbody tr:hover {
+  background: rgba(13,59,102,0.05);
+}
+
+body.light-mode .tag-pill {
+  background: rgba(0,0,0,0.04);
+  color: var(--muted);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+body.light-mode .form-input,
+body.light-mode .form-select {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: var(--text);
+}
+
+body.light-mode .modal-window {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+body.light-mode .logo-mark {
+  background: radial-gradient(circle at 20% 0%, #c89b3c 0, #84581f 100%);
+}
+body.light-mode .logo-mark svg {
+  fill: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -261,6 +357,17 @@ body {
   grid-template-columns: 260px minmax(0, 1fr);
   width: 100%;
   max-width: 1440px;
+  transition: grid-template-columns 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.app.sidebar-hidden {
+  grid-template-columns: 0 minmax(0, 1fr);
+}
+
+.app.sidebar-hidden .sidebar {
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
   margin: 16px auto;
   border-radius: 28px;
   overflow: hidden;
