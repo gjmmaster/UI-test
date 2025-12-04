@@ -29,45 +29,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtitle = document.getElementById('page-subtitle');
 
     const subtitles = {
-      dashboard: 'Visão consolidada de processos, prazos e faturamento em tempo real.',
-      processos: 'Gestão completa do contencioso com filtros avançados e painel de risco.',
-      audiencias: 'Agenda avançada de audiências, prazos fatais e SLAs contratuais.',
-      clientes: 'Visão única de clientes, partes e relacionamento estratégico.',
-      financeiro: 'Monitoramento econômico do escritório e projeções de caixa.'
+        dashboard: 'Visão consolidada de processos, prazos e faturamento em tempo real.',
+        processos: 'Gestão completa do contencioso com filtros avançados e painel de risco.',
+        audiencias: 'Agenda avançada de audiências, prazos fatais e SLAs contratuais.',
+        clientes: 'Visão única de clientes, partes e relacionamento estratégico.',
+        financeiro: 'Monitoramento econômico do escritório e projeções de caixa.'
     };
 
     // Handle Page Transitions (Tab Switching)
     if (navItems.length > 0) {
         navItems.forEach(item => {
             item.addEventListener('click', () => {
-              const target = item.getAttribute('data-target');
+                const target = item.getAttribute('data-target');
 
-              // 1. Show Loading Overlay briefly for effect
-              const loading = document.getElementById('loadingOverlay');
-              if (loading) {
-                  loading.classList.add('active');
-                  setTimeout(() => {
-                      loading.classList.remove('active');
-                  }, 400); // Quick transition
-              }
-
-              // 2. Update Active Menu Item
-              navItems.forEach(i => i.classList.remove('active'));
-              item.classList.add('active');
-
-              // 3. Update Active Section
-              sections.forEach(sec => {
-                if (sec.getAttribute('data-section') === target) {
-                  sec.classList.add('active');
-                } else {
-                  sec.classList.remove('active');
+                // 1. Show Loading Overlay briefly for effect
+                const loading = document.getElementById('loadingOverlay');
+                if (loading) {
+                    loading.classList.add('active');
+                    setTimeout(() => {
+                        loading.classList.remove('active');
+                    }, 400); // Quick transition
                 }
-              });
 
-              // 4. Update Subtitle
-              if (subtitles[target] && subtitle) {
-                subtitle.textContent = subtitles[target];
-              }
+                // 2. Update Active Menu Item
+                navItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                // 3. Update Active Section
+                sections.forEach(sec => {
+                    if (sec.getAttribute('data-section') === target) {
+                        sec.classList.add('active');
+                    } else {
+                        sec.classList.remove('active');
+                    }
+                });
+
+                // 4. Update Subtitle
+                if (subtitles[target] && subtitle) {
+                    subtitle.textContent = subtitles[target];
+                }
             });
         });
     }
@@ -212,17 +212,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. EXPANDABLE PROCESS VIEW ---
-    const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+    // --- 4. SIDEBAR TOGGLE LOGIC ---
+    const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
     const appContainer = document.querySelector('.app');
 
-    if (toggleSidebarBtn) {
-        toggleSidebarBtn.addEventListener('click', () => {
+    // Restore sidebar state from localStorage
+    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+    if (isCollapsed) {
+        appContainer.classList.add('sidebar-hidden');
+    }
+
+    if (sidebarToggleBtn) {
+        const icon = sidebarToggleBtn.querySelector('.icon');
+
+        // Set initial icon based on state
+        if (isCollapsed) {
+            icon.textContent = '☰'; // Hamburger menu when collapsed
+            sidebarToggleBtn.title = 'Expandir menu';
+        }
+
+        sidebarToggleBtn.addEventListener('click', () => {
             appContainer.classList.toggle('sidebar-hidden');
             const isHidden = appContainer.classList.contains('sidebar-hidden');
-            // Update icon
-            toggleSidebarBtn.textContent = isHidden ? '⤡' : '⤢';
-            toggleSidebarBtn.title = isHidden ? 'Restaurar visualização' : 'Expandir visualização';
+
+            // Update icon and title
+            if (isHidden) {
+                icon.textContent = '☰'; // Hamburger menu when collapsed
+                sidebarToggleBtn.title = 'Expandir menu';
+            } else {
+                icon.textContent = '«'; // Left arrows when expanded
+                sidebarToggleBtn.title = 'Recolher menu';
+            }
+
+            // Save state to localStorage
+            localStorage.setItem('sidebarCollapsed', isHidden);
         });
     }
 });
