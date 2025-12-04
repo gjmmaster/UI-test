@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <title>Legal ERP - Painel Jurídico</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <div class="app">
+    <!-- Sidebar Toggle Button (Outside sidebar to remain visible) -->
+    <button class="sidebar-collapse-btn" id="sidebarToggleBtn" title="Recolher menu">
+      <span class="icon">«</span>
+    </button>
+
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="logo">
@@ -77,7 +84,8 @@
         <div class="pro-card">
           <div class="pro-card-title">Módulo Premium de Inteligência</div>
           <p>
-            Gere insights de risco, probabilidade de êxito e previsões de honorários com base no histórico do escritório.
+            Gere insights de risco, probabilidade de êxito e previsões de honorários com base no histórico do
+            escritório.
           </p>
           <div class="pro-pill">
             <span class="dot"></span>
@@ -95,7 +103,7 @@
           </div>
           <div class="user-status-pill">Online</div>
         </div>
-      </div>
+
     </aside>
 
     <!-- MAIN -->
@@ -114,7 +122,6 @@
           <div class="search">
             <span class="search-icon">🔍</span>
             <input placeholder="Buscar por número do processo, cliente ou parte..." />
-            <span class="kbd-hint">Ctrl+K</span>
           </div>
           <div class="topbar-actions">
             <button class="btn-ghost" id="newRecordBtn">
@@ -129,7 +136,7 @@
               <span>Admin</span>
             </div>
             <button class="btn-ghost" id="themeToggle" title="Alternar tema">
-                <span class="icon">☀</span>
+              <span class="icon">☀</span>
             </button>
           </div>
         </div>
@@ -702,30 +709,30 @@
               </div>
             </div>
             <div class="table-wrapper">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Perfil</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Dra. Adriana Dias</td>
-                      <td>adriana.dias@legalerp.com</td>
-                      <td>Administrador</td>
-                      <td><span class="status-pill status-open">Ativo</span></td>
-                    </tr>
-                    <tr>
-                      <td>Dr. Silva</td>
-                      <td>silva@legalerp.com</td>
-                      <td>Advogado Sênior</td>
-                      <td><span class="status-pill status-open">Ativo</span></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Perfil</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Dra. Adriana Dias</td>
+                    <td>adriana.dias@legalerp.com</td>
+                    <td>Administrador</td>
+                    <td><span class="status-pill status-open">Ativo</span></td>
+                  </tr>
+                  <tr>
+                    <td>Dr. Silva</td>
+                    <td>silva@legalerp.com</td>
+                    <td>Advogado Sênior</td>
+                    <td><span class="status-pill status-open">Ativo</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -748,24 +755,24 @@
       </div>
       <form id="newRecordForm">
         <div class="form-group">
-            <label class="form-label">Tipo de registro</label>
-            <select class="form-select">
-                <option>Nova Audiência</option>
-                <option>Novo Cliente</option>
-                <option>Lançamento Financeiro</option>
-            </select>
+          <label class="form-label">Tipo de registro</label>
+          <select class="form-select">
+            <option>Nova Audiência</option>
+            <option>Novo Cliente</option>
+            <option>Lançamento Financeiro</option>
+          </select>
         </div>
         <div class="form-group">
-            <label class="form-label">Título / Descrição</label>
-            <input type="text" class="form-input" placeholder="Ex: Ação indenizatória vs. XPTO">
+          <label class="form-label">Título / Descrição</label>
+          <input type="text" class="form-input" placeholder="Ex: Ação indenizatória vs. XPTO">
         </div>
         <div class="form-group">
-            <label class="form-label">Cliente vinculado</label>
-            <input type="text" class="form-input" placeholder="Buscar cliente...">
+          <label class="form-label">Cliente vinculado</label>
+          <input type="text" class="form-input" placeholder="Buscar cliente...">
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn-ghost modal-close-btn">Cancelar</button>
-            <button type="submit" class="btn-primary">Salvar registro</button>
+          <button type="button" class="btn-ghost modal-close-btn">Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar registro</button>
         </div>
       </form>
     </div>
@@ -780,38 +787,38 @@
       </div>
       <form id="newProcessForm">
         <div class="form-group">
-            <label class="form-label">Número do Processo</label>
-            <input type="text" id="procNum" class="form-input" placeholder="0000000-00.0000.0.00.0000" required>
+          <label class="form-label">Número do Processo</label>
+          <input type="text" id="procNum" class="form-input" placeholder="0000000-00.0000.0.00.0000" required>
         </div>
         <div class="form-group">
-            <label class="form-label">Cliente</label>
-            <input type="text" id="procClient" class="form-input" placeholder="Nome do cliente" required>
+          <label class="form-label">Cliente</label>
+          <input type="text" id="procClient" class="form-input" placeholder="Nome do cliente" required>
         </div>
         <div class="form-group">
-            <label class="form-label">Área</label>
-            <select id="procArea" class="form-select">
-                <option value="Cível">Cível</option>
-                <option value="Trabalhista">Trabalhista</option>
-                <option value="Tributário">Tributário</option>
-                <option value="Família">Família</option>
-                <option value="Societário">Societário</option>
-            </select>
+          <label class="form-label">Área</label>
+          <select id="procArea" class="form-select">
+            <option value="Cível">Cível</option>
+            <option value="Trabalhista">Trabalhista</option>
+            <option value="Tributário">Tributário</option>
+            <option value="Família">Família</option>
+            <option value="Societário">Societário</option>
+          </select>
         </div>
         <div class="form-group">
-            <label class="form-label">Fase Processual</label>
-            <input type="text" id="procPhase" class="form-input" placeholder="Ex: Instrução">
+          <label class="form-label">Fase Processual</label>
+          <input type="text" id="procPhase" class="form-input" placeholder="Ex: Instrução">
         </div>
         <div class="form-group">
-            <label class="form-label">Responsável</label>
-            <input type="text" id="procResp" class="form-input" placeholder="Nome do advogado">
+          <label class="form-label">Responsável</label>
+          <input type="text" id="procResp" class="form-input" placeholder="Nome do advogado">
         </div>
         <div class="form-group">
-            <label class="form-label">Probabilidade de Êxito (%)</label>
-            <input type="number" id="procProb" class="form-input" placeholder="0-100" min="0" max="100">
+          <label class="form-label">Probabilidade de Êxito (%)</label>
+          <input type="number" id="procProb" class="form-input" placeholder="0-100" min="0" max="100">
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn-ghost" id="cancelProcessModal">Cancelar</button>
-            <button type="submit" class="btn-primary">Criar Processo</button>
+          <button type="button" class="btn-ghost" id="cancelProcessModal">Cancelar</button>
+          <button type="submit" class="btn-primary">Criar Processo</button>
         </div>
       </form>
     </div>
@@ -819,4 +826,5 @@
 
   <script src="assets/js/app.js"></script>
 </body>
+
 </html>
