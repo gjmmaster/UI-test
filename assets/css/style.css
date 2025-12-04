@@ -17,430 +17,6 @@
   --shadow-subtle: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* LIGHT MODE OVERRIDES - PREMIUM DESIGN */
-body.light-mode {
-  --bg: #f8f6f0;
-  --bg-elevated: rgba(255, 255, 255, 0.92);
-  --bg-soft: #f5f2ea;
-  --text: #1a1f2e;
-  --muted: #5e6c84;
-  --border: rgba(200, 155, 60, 0.12);
-  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
-  --shadow-subtle: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
-
-  /* Fundo com gradientes radiais suaves e harmoniosos */
-  background:
-    radial-gradient(circle at 15% 8%, rgba(254, 249, 237, 0.8) 0%, transparent 45%),
-    radial-gradient(circle at 85% 12%, rgba(232, 244, 237, 0.6) 0%, transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(240, 237, 227, 0.7) 0%, transparent 55%),
-    linear-gradient(135deg, #fefbf5 0%, #f8f6f0 50%, #f5f2ea 100%);
-}
-
-body.light-mode .app {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-}
-
-/* Sidebar com gradiente premium */
-body.light-mode .sidebar {
-  background:
-    linear-gradient(165deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(250, 247, 240, 0.92) 35%,
-      rgba(245, 240, 230, 0.90) 100%);
-  backdrop-filter: blur(12px);
-  border-right: 1px solid rgba(200, 155, 60, 0.15);
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04);
-}
-
-/* Nav items melhorados */
-body.light-mode .nav-item span.icon {
-  background: linear-gradient(135deg, rgba(200, 155, 60, 0.08), rgba(13, 59, 102, 0.05));
-  border: 1px solid rgba(200, 155, 60, 0.2);
-}
-
-body.light-mode .nav-item:hover:not(.active) {
-  background: linear-gradient(90deg, rgba(200, 155, 60, 0.08), rgba(13, 59, 102, 0.06));
-  color: var(--text);
-  transform: translateX(2px);
-}
-
-body.light-mode .nav-item.active {
-  background: linear-gradient(90deg, rgba(200, 155, 60, 0.18), rgba(13, 59, 102, 0.12));
-  box-shadow: 0 4px 12px rgba(200, 155, 60, 0.15);
-}
-
-/* Cards com glassmorphism premium */
-body.light-mode .card {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.88) 100%);
-  backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(200, 155, 60, 0.18);
-  box-shadow:
-    0 8px 32px rgba(200, 155, 60, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-/* KPIs com gradientes vibrantes */
-body.light-mode .kpi {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(250, 248, 245, 0.95) 100%);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  box-shadow:
-    0 4px 20px rgba(200, 155, 60, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.light-mode .kpi:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 28px rgba(200, 155, 60, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* Agenda items e list items */
-body.light-mode .agenda-item,
-body.light-mode .list-item {
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(252, 250, 245, 0.82) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.12);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-body.light-mode .quick-btn {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(250, 247, 242, 0.85) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-body.light-mode .quick-btn:hover {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.12) 0%,
-      rgba(13, 59, 102, 0.08) 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(200, 155, 60, 0.12);
-}
-
-/* Search input premium */
-body.light-mode .search input {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(252, 250, 246, 0.92) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  color: var(--text);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-body.light-mode .search input:focus {
-  background: rgba(255, 255, 255, 0.98);
-  border-color: rgba(200, 155, 60, 0.4);
-  box-shadow:
-    0 0 0 3px rgba(200, 155, 60, 0.1),
-    0 4px 12px rgba(200, 155, 60, 0.15);
-}
-
-/* Buttons */
-body.light-mode .btn-ghost {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(250, 247, 242, 0.85) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-body.light-mode .btn-ghost:hover {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(13, 59, 102, 0.08) 100%);
-  box-shadow: 0 4px 12px rgba(200, 155, 60, 0.12);
-}
-
-body.light-mode .user-chip {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(250, 247, 242, 0.88) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.18);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-/* Table improvements */
-body.light-mode table th {
-  border-bottom: 1px solid rgba(200, 155, 60, 0.2);
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(252, 250, 245, 0.95) 100%);
-}
-
-body.light-mode thead {
-  background: transparent;
-}
-
-body.light-mode tbody tr:nth-child(even) {
-  background: rgba(200, 155, 60, 0.03);
-}
-
-body.light-mode tbody tr:hover {
-  background: linear-gradient(90deg,
-      rgba(200, 155, 60, 0.08) 0%,
-      rgba(13, 59, 102, 0.06) 100%);
-}
-
-/* Tag pills */
-body.light-mode .tag-pill {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.12) 0%,
-      rgba(13, 59, 102, 0.08) 100%);
-  color: var(--text);
-  border: 1px solid rgba(200, 155, 60, 0.25);
-  font-weight: 500;
-}
-
-/* Forms */
-body.light-mode .form-input,
-body.light-mode .form-select {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  color: var(--text);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-body.light-mode .form-input:focus,
-body.light-mode .form-select:focus {
-  border-color: rgba(200, 155, 60, 0.5);
-  box-shadow:
-    0 0 0 3px rgba(200, 155, 60, 0.1),
-    0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* Modal */
-body.light-mode .modal-window {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(250, 247, 242, 0.95) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.12),
-    0 8px 24px rgba(200, 155, 60, 0.08);
-}
-
-/* Logo and branding */
-body.light-mode .logo-mark {
-  background: linear-gradient(135deg, #c89b3c 0%, #a67c2f 50%, #84581f 100%);
-  box-shadow:
-    0 8px 24px rgba(200, 155, 60, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .logo-mark svg {
-  fill: #ffffff;
-}
-
-/* Pro card no modo claro */
-body.light-mode .pro-card {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(132, 88, 31, 0.12) 50%,
-      rgba(200, 155, 60, 0.1) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.3);
-  box-shadow:
-    0 4px 16px rgba(200, 155, 60, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-body.light-mode .pro-card p {
-  color: #4a3f2e;
-}
-
-/* User mini refinement */
-body.light-mode .user-mini {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(250, 247, 242, 0.92) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-/* Topbar premium */
-body.light-mode .topbar {
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0.7) 0%,
-      rgba(252, 250, 246, 0.6) 100%);
-  backdrop-filter: blur(12px);
-  padding: 12px 0;
-  margin: -12px 0 8px;
-  border-radius: 16px;
-}
-
-/* Buttons harmonizados no modo claro */
-body.light-mode .btn-primary {
-  background: linear-gradient(135deg,
-      #d4a855 0%,
-      #b8935f 50%,
-      #9c7a4a 100%);
-  color: #ffffff;
-  border: 1px solid rgba(200, 155, 60, 0.3);
-  box-shadow:
-    0 4px 16px rgba(200, 155, 60, 0.25),
-    0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-body.light-mode .btn-primary:hover {
-  background: linear-gradient(135deg,
-      #e0b560 0%,
-      #c89b3c 50%,
-      #a67c2f 100%);
-  box-shadow:
-    0 6px 20px rgba(200, 155, 60, 0.3),
-    0 3px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-/* Kbd hint harmonizado */
-body.light-mode .kbd-hint {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(132, 88, 31, 0.12) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.3);
-  color: #5e6c84;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* User chip avatar cores suaves */
-body.light-mode .user-chip-avatar {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.7) 0%,
-      rgba(132, 88, 31, 0.6) 100%);
-}
-
-/* Topbar badge harmonizado */
-body.light-mode .topbar-badge {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(13, 59, 102, 0.1) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.3);
-  color: #5e6c84;
-}
-
-/* Icon buttons refinados */
-body.light-mode .icon-btn {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(250, 247, 242, 0.85) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200, 155, 60, 0.25);
-  color: #5e6c84;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-}
-
-body.light-mode .icon-btn:hover {
-  color: #1a1f2e;
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(13, 59, 102, 0.08) 100%);
-  border-color: rgba(200, 155, 60, 0.35);
-  box-shadow: 0 3px 8px rgba(200, 155, 60, 0.12);
-}
-
-/* Sidebar collapse button - modo claro */
-body.light-mode .sidebar-collapse-btn {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(250, 247, 242, 0.7) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.3);
-  color: #5e6c84;
-  backdrop-filter: blur(8px);
-}
-
-body.light-mode .sidebar-collapse-btn:hover {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.25) 0%,
-      rgba(132, 88, 31, 0.18) 100%);
-  color: #1a1f2e;
-  border-color: rgba(200, 155, 60, 0.5);
-}
-
-/* When sidebar hidden - light mode */
-body.light-mode .app.sidebar-hidden .sidebar-collapse-btn {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(250, 247, 242, 0.9) 100%);
-  border-color: rgba(200, 155, 60, 0.5);
-  color: #84581f;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-
-
-/* Agenda - Data boxes harmonizados */
-body.light-mode .agenda-date {
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.2) 0%,
-      rgba(132, 88, 31, 0.15) 100%);
-  border: 1px solid rgba(200, 155, 60, 0.3);
-}
-
-body.light-mode .agenda-date span.day {
-  color: #84581f;
-  font-weight: 700;
-}
-
-body.light-mode .agenda-date span.month {
-  color: #9c7a4a;
-  text-transform: uppercase;
-}
-
-/* Agenda type badges harmonizados */
-body.light-mode .agenda-type {
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(250, 247, 242, 0.9) 100%);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-body.light-mode .agenda-type.audiencia {
-  border-color: rgba(200, 155, 60, 0.4);
-  color: #a67c2f;
-  background: linear-gradient(135deg,
-      rgba(200, 155, 60, 0.15) 0%,
-      rgba(200, 155, 60, 0.08) 100%);
-}
-
-body.light-mode .agenda-type.prazo {
-  border-color: rgba(176, 58, 72, 0.4);
-  color: #b03a48;
-  background: linear-gradient(135deg,
-      rgba(176, 58, 72, 0.12) 0%,
-      rgba(176, 58, 72, 0.06) 100%);
-}
-
-body.light-mode .agenda-type.reuniao {
-  border-color: rgba(13, 59, 102, 0.4);
-  color: #0d3b66;
-  background: linear-gradient(135deg,
-      rgba(13, 59, 102, 0.12) 0%,
-      rgba(13, 59, 102, 0.06) 100%);
-}
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -1720,4 +1296,426 @@ td.status-cell {
   .quick-actions {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* LIGHT MODE OVERRIDES - PREMIUM DESIGN */
+body.light-mode {
+  --bg: #f8f6f0;
+  --bg-elevated: rgba(255, 255, 255, 0.92);
+  --bg-soft: #f5f2ea;
+  --text: #1a1f2e;
+  --muted: #5e6c84;
+  --border: rgba(200, 155, 60, 0.12);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+  --shadow-subtle: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+
+  /* Fundo com gradientes radiais suaves e harmoniosos */
+  background:
+    radial-gradient(circle at 15% 8%, rgba(254, 249, 237, 0.8) 0%, transparent 45%),
+    radial-gradient(circle at 85% 12%, rgba(232, 244, 237, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(240, 237, 227, 0.7) 0%, transparent 55%),
+    linear-gradient(135deg, #fefbf5 0%, #f8f6f0 50%, #f5f2ea 100%);
+}
+
+body.light-mode .app {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* Sidebar com gradiente premium */
+body.light-mode .sidebar {
+  background:
+    linear-gradient(165deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 247, 240, 0.92) 35%,
+      rgba(245, 240, 230, 0.90) 100%);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(200, 155, 60, 0.15);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Nav items melhorados */
+body.light-mode .nav-item span.icon {
+  background: linear-gradient(135deg, rgba(200, 155, 60, 0.08), rgba(13, 59, 102, 0.05));
+  border: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+body.light-mode .nav-item:hover:not(.active) {
+  background: linear-gradient(90deg, rgba(200, 155, 60, 0.08), rgba(13, 59, 102, 0.06));
+  color: var(--text);
+  transform: translateX(2px);
+}
+
+body.light-mode .nav-item.active {
+  background: linear-gradient(90deg, rgba(200, 155, 60, 0.18), rgba(13, 59, 102, 0.12));
+  box-shadow: 0 4px 12px rgba(200, 155, 60, 0.15);
+}
+
+/* Cards com glassmorphism premium */
+body.light-mode .card {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.88) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(200, 155, 60, 0.18);
+  box-shadow:
+    0 8px 32px rgba(200, 155, 60, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* KPIs com gradientes vibrantes */
+body.light-mode .kpi {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(250, 248, 245, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  box-shadow:
+    0 4px 20px rgba(200, 155, 60, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-mode .kpi:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px rgba(200, 155, 60, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Agenda items e list items */
+body.light-mode .agenda-item,
+body.light-mode .list-item {
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(252, 250, 245, 0.82) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .quick-btn {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(250, 247, 242, 0.85) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+body.light-mode .quick-btn:hover {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.12) 0%,
+      rgba(13, 59, 102, 0.08) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(200, 155, 60, 0.12);
+}
+
+/* Search input premium */
+body.light-mode .search input {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(252, 250, 246, 0.92) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .search input:focus {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(200, 155, 60, 0.4);
+  box-shadow:
+    0 0 0 3px rgba(200, 155, 60, 0.1),
+    0 4px 12px rgba(200, 155, 60, 0.15);
+}
+
+/* Buttons */
+body.light-mode .btn-ghost {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(250, 247, 242, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .btn-ghost:hover {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(13, 59, 102, 0.08) 100%);
+  box-shadow: 0 4px 12px rgba(200, 155, 60, 0.12);
+}
+
+body.light-mode .user-chip {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(250, 247, 242, 0.88) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Table improvements */
+body.light-mode table th {
+  border-bottom: 1px solid rgba(200, 155, 60, 0.2);
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(252, 250, 245, 0.95) 100%);
+}
+
+body.light-mode thead {
+  background: transparent;
+}
+
+body.light-mode tbody tr:nth-child(even) {
+  background: rgba(200, 155, 60, 0.03);
+}
+
+body.light-mode tbody tr:hover {
+  background: linear-gradient(90deg,
+      rgba(200, 155, 60, 0.08) 0%,
+      rgba(13, 59, 102, 0.06) 100%);
+}
+
+/* Tag pills */
+body.light-mode .tag-pill {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.12) 0%,
+      rgba(13, 59, 102, 0.08) 100%);
+  color: var(--text);
+  border: 1px solid rgba(200, 155, 60, 0.25);
+  font-weight: 500;
+}
+
+/* Forms */
+body.light-mode .form-input,
+body.light-mode .form-select {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+body.light-mode .form-input:focus,
+body.light-mode .form-select:focus {
+  border-color: rgba(200, 155, 60, 0.5);
+  box-shadow:
+    0 0 0 3px rgba(200, 155, 60, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Modal */
+body.light-mode .modal-window {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(250, 247, 242, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(200, 155, 60, 0.08);
+}
+
+/* Logo and branding */
+body.light-mode .logo-mark {
+  background: linear-gradient(135deg, #c89b3c 0%, #a67c2f 50%, #84581f 100%);
+  box-shadow:
+    0 8px 24px rgba(200, 155, 60, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .logo-mark svg {
+  fill: #ffffff;
+}
+
+/* Pro card no modo claro */
+body.light-mode .pro-card {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(132, 88, 31, 0.12) 50%,
+      rgba(200, 155, 60, 0.1) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  box-shadow:
+    0 4px 16px rgba(200, 155, 60, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .pro-card p {
+  color: #4a3f2e;
+}
+
+/* User mini refinement */
+body.light-mode .user-mini {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 247, 242, 0.92) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Topbar premium */
+body.light-mode .topbar {
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(252, 250, 246, 0.6) 100%);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  margin: -12px 0 8px;
+  border-radius: 16px;
+}
+
+/* Buttons harmonizados no modo claro */
+body.light-mode .btn-primary {
+  background: linear-gradient(135deg,
+      #d4a855 0%,
+      #b8935f 50%,
+      #9c7a4a 100%);
+  color: #ffffff;
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  box-shadow:
+    0 4px 16px rgba(200, 155, 60, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .btn-primary:hover {
+  background: linear-gradient(135deg,
+      #e0b560 0%,
+      #c89b3c 50%,
+      #a67c2f 100%);
+  box-shadow:
+    0 6px 20px rgba(200, 155, 60, 0.3),
+    0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Kbd hint harmonizado */
+body.light-mode .kbd-hint {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(132, 88, 31, 0.12) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  color: #5e6c84;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* User chip avatar cores suaves */
+body.light-mode .user-chip-avatar {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.7) 0%,
+      rgba(132, 88, 31, 0.6) 100%);
+}
+
+/* Topbar badge harmonizado */
+body.light-mode .topbar-badge {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(13, 59, 102, 0.1) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  color: #5e6c84;
+}
+
+/* Icon buttons refinados */
+body.light-mode .icon-btn {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(250, 247, 242, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 155, 60, 0.25);
+  color: #5e6c84;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+body.light-mode .icon-btn:hover {
+  color: #1a1f2e;
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(13, 59, 102, 0.08) 100%);
+  border-color: rgba(200, 155, 60, 0.35);
+  box-shadow: 0 3px 8px rgba(200, 155, 60, 0.12);
+}
+
+/* Sidebar collapse button - modo claro */
+body.light-mode .sidebar-collapse-btn {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(250, 247, 242, 0.7) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  color: #5e6c84;
+  backdrop-filter: blur(8px);
+}
+
+body.light-mode .sidebar-collapse-btn:hover {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.25) 0%,
+      rgba(132, 88, 31, 0.18) 100%);
+  color: #1a1f2e;
+  border-color: rgba(200, 155, 60, 0.5);
+}
+
+/* When sidebar hidden - light mode */
+body.light-mode .app.sidebar-hidden .sidebar-collapse-btn {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 247, 242, 0.9) 100%);
+  border-color: rgba(200, 155, 60, 0.5);
+  color: #84581f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* Agenda - Data boxes harmonizados */
+body.light-mode .agenda-date {
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.2) 0%,
+      rgba(132, 88, 31, 0.15) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+}
+
+body.light-mode .agenda-date span.day {
+  color: #84581f;
+  font-weight: 700;
+}
+
+body.light-mode .agenda-date span.month {
+  color: #9c7a4a;
+  text-transform: uppercase;
+}
+
+/* Agenda type badges harmonizados */
+body.light-mode .agenda-type {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 247, 242, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .agenda-type.audiencia {
+  border-color: rgba(200, 155, 60, 0.4);
+  color: #a67c2f;
+  background: linear-gradient(135deg,
+      rgba(200, 155, 60, 0.15) 0%,
+      rgba(200, 155, 60, 0.08) 100%);
+}
+
+body.light-mode .agenda-type.prazo {
+  border-color: rgba(176, 58, 72, 0.4);
+  color: #b03a48;
+  background: linear-gradient(135deg,
+      rgba(176, 58, 72, 0.12) 0%,
+      rgba(176, 58, 72, 0.06) 100%);
+}
+
+body.light-mode .agenda-type.reuniao {
+  border-color: rgba(13, 59, 102, 0.4);
+  color: #0d3b66;
+  background: linear-gradient(135deg,
+      rgba(13, 59, 102, 0.12) 0%,
+      rgba(13, 59, 102, 0.06) 100%);
 }
